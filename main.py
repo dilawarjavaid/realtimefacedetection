@@ -16,3 +16,11 @@ def detect_faces(frame):
         cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
     return frame
+
+# Open a connection to the webcam
+cap = cv2.VideoCapture(0)
+
+# Check if webcam opened successfully
+if not cap.isOpened():
+    print("Error: Could not open webcam.")
+    exit()
