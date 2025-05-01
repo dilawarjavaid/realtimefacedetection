@@ -43,3 +43,17 @@ while True:
     # Break the loop if 'q' is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+    # Detect faces in the frame
+    frame_with_faces = detect_faces(frame)
+
+    # Display the resulting frame
+    cv2.imshow('Real-Time Face Detection', frame_with_faces)
+
+    # Break the loop if 'q' is pressed
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Release the webcam and close the window
+cap.release()
+cv2.destroyAllWindows()
