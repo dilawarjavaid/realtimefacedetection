@@ -24,3 +24,22 @@ cap = cv2.VideoCapture(0)
 if not cap.isOpened():
     print("Error: Could not open webcam.")
     exit()
+
+# Real-time face detection loop
+while True:
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+
+    if not ret:
+        print("Failed to grab frame.")
+        break
+
+    # Detect faces in the frame
+    frame_with_faces = detect_faces(frame)
+
+    # Display the resulting frame
+    cv2.imshow('Real-Time Face Detection', frame_with_faces)
+
+    # Break the loop if 'q' is pressed
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
